@@ -1,0 +1,12 @@
+const QRCodeDisplay = ({ qrCodeUrl, driverName, vehicleInfo }) => {
+    return (
+        <div className="qr-code-display p-5 text-center">
+            <img src={qrCodeUrl} alt="QR Code" className="qr-code m-auto" />
+            <h2>{driverName}</h2>
+            <p>{vehicleInfo}</p>
+            <button className="btn-primary">View Promotions</button>
+        </div>
+    );
+};
+
+export default QRCodeDisplay;

@@ -1,0 +1,28 @@
+import React, { useState } from 'react';
+import axios from 'axios';
+
+const CreateAd = () => {
+   const [adData, setAdData] = useState({
+       businessName: '',
+       adContent: '',
+       targetDemographics: ''
+   });
+
+   const handleSubmit = () => {
+       axios.post('/api/ads', adData)
+           .then(response => alert('Ad created successfully'))
+           .catch(error => console.error('Error creating ad', error));
+   };
+
+   return (
+       <div className="create-ad p-4">
+           <h2>Create New Ad</h2>
+           <input type="text" placeholder="Business Name" onChange={(e) => setAdData({ ...adData, businessName: e.target.value })} />
+           <textarea placeholder="Ad Content" onChange={(e) => setAdData({ ...adData, adContent: e.target.value })} />
+           <button onClick={handleSubmit}>Create Ad</button>
+       </div>
+   );
+};
+
+export default CreateAd;
+
